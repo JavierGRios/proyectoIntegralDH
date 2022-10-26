@@ -131,14 +131,29 @@ const productosController = {
         res.redirect('/productos')
 },
     buscar :  (req,res) =>{
+        const  search  = req.query.search;
+        let productos = [];
+        if (search) {
         
-        db.Producto.findAll({
-           
+            db.Producto.findAll({
+                include:[
+                   {
+                   association : "categoria"},
+                   {
+                   association : "genero"    
+                   }],
+               
             where:{
-                nombre : {[Op.like]:`%${req.query}%`}
-            }
-        }).then(productos =>{
-            res.render(path.join(__dirname,'../views/products/productos.ejs'),{ productos }) 
+                nombre :{ [Op.like]: '%' + search + '%' },
+                
+            }},
+           
+        ).then(productosxnombre =>{
+            productos= productosxnombre
+            
+
+
+            res.render(path.join(__dirname,'../views/products/productosSearch.ejs'),{ productos }) 
 
         }).catch(error =>{
             console.log(error)
@@ -150,7 +165,7 @@ const productosController = {
 
     
 }
-
+}
 
 
 

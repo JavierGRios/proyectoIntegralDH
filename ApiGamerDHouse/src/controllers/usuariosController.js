@@ -17,12 +17,12 @@ const usuarioController = {
     // controler de ruta de registro
 
     register: (req,res) => {
-        //res.cookie('testing','hola planeto!!'),{maxAge:1000 * 30 };
+        
         res.render(path.join(__dirname, '../views/users/register.ejs'));
 
     },
 
-    // registrar usuario en la DB incluye Validacion de campos
+    
 
     usuarioRegistrado: async ( req, res)=>{
         

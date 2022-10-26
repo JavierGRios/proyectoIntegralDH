@@ -13,8 +13,13 @@ const indexController ={
             association : "genero"    
         }],
       
-        limit: 9
-      }
+        limit: 9,
+        order:[
+            ['id','DESC']
+            
+               ]
+    
+      },
        
        )
           .then(productos=> {

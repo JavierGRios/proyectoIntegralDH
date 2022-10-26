@@ -38,7 +38,7 @@ router.get('/producto/:id',productosController.productoDetalle);
 
 router.get('/productos', productosController.allProducts);
 
-router.get('/productos/buscar',productosController.buscar);
+router.get('/search',productosController.buscar);
 
 
 router.get('/productos/create',autoriza,productosController.crear);

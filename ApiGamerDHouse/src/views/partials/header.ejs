@@ -52,9 +52,10 @@
       <%}%>  
       </ul>
       
-        <form action='/productos/buscar' method="get"  class="d-flex  " >
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="formulario">
-          <button class="btn btn-outline-success" id="boton" type="submit">Search</button>
+        <form action='/search' method="GET"  class="d-flex  " >
+          <input class="form-control me-2" name="search" type="search"
+            placeholder="Search" aria-lael="Search" id="formulario" enctype="multipart/form-data">
+          <button class="btn btn-outline-success" id="boton" type="submit">Buscar</button>
         </form>
 
       
