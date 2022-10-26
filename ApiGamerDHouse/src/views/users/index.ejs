@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %> 
+    <title>TeamGamerDHouse</title>
+  </head>
+  <body>
+    <header id="main-header">
+      <%- include('../partials/header.ejs') %>
+    </header>
+
+      <!--Empieza el contenido-->
+    <main>
+      <picture id="portada">
+        <img src="/image/portada/portada-juegos.jpg"  alt="portada-juegos">
+      </picture>
+      
+      <section class="products" id="gamesps">
+          <h2>NOVEDADES EN DHOUSE!!</h2>
+
+          <ul class="product-list">
+              <% if(Array.isArray(productos)){%>
+                <% for(let i=0;i < productos.length; i++){%>
+
+                  <li class="product-card">
+                    <div class="card" style="width: 20rem;">
+                      <img src="/image/imagenArticulos/<%=productos[i].imagen%>" class="rounded mx-auto d-block" alt="..."width="200" height="250">
+                      <div class="card-body bg-dark text-white">
+                        <h6 class="card-title text-center text-primary  fw-bold fst-italic "><%= productos[i].nombre%></h6>
+                        <h6 class="card-title">Precio: $<%= productos[i].precio%></h6>
+                        <% if(productos[i].categoria){ %>
+                            <h5 class="card-title">Consola : <%=productos[i].categoria.nombre%> </h5>
+                            <% } %>  
+                        <a href="/producto/<%=productos[i].id%> " class="btn btn-primary">Ver Detalle</a>
+                      </div>
+                    </div>
+                    
+                  </li>
+          <% } %> 
+          <% } %> 
+
+        </section>
+        
+    </main>
+    
+    
+   
+   <footer>
+    
+    <%- include('../partials/footer.ejs')  %> 
+        
+
+    </footer>
+</body>
+</html>
